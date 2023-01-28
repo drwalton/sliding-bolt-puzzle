@@ -29,7 +29,7 @@ maze_track_width = post_diameter+post_tolerance;
 
 num_tracks = 10;
 
-maze_height = num_tracks * 2 * maze_track_width + post_offset_from_top;
+maze_height = (num_tracks * 2 + 1) * maze_track_width + post_offset_from_top;
 
 eps = 0.01;
 big = 100;
@@ -81,10 +81,10 @@ difference() {
     difference() {
         union() {
             difference() {
+                // Outer hexagonal prism
                 cylinder(h=maze_height + outer_box_top_thickness, d=outer_box_diameter, $fn=6);
                 
-                
-                
+                // Rings 
                 for(i = [0:num_tracks]) {
                     translate([0,0,(1 + 2*i)*maze_track_width])
                     cylinder(h=maze_track_width, d=inner_box_diameter + box_tolerance + 2*maze_track_depth);
@@ -99,18 +99,16 @@ difference() {
             
             translate([0,0,(maze_height+maze_track_width)/2])
             cube([inner_box_diameter+2*maze_track_depth+box_tolerance, 2, maze_height+maze_track_width/2], center=true);
-        }
-
-        translate([0,0,-eps])
-            cylinder(h=maze_height, d=inner_box_diameter + box_tolerance);
-        
-        
+        }       
         
         for(i = [0:len(hole_heights)-1]) {
             rotate([0,0,hole_angles[i]])
             translate([0,maze_track_depth/2,hole_heights[i]*maze_track_width*2 + maze_track_width/2-eps])
             cube([maze_track_width+post_tolerance, inner_box_diameter+maze_track_depth+box_tolerance/2, maze_track_width+3*eps], center=true);
         }
+        
+        translate([0,0,-eps])
+            cylinder(h=maze_height, d=inner_box_diameter + box_tolerance);
         
     }
     if(render_all) {
