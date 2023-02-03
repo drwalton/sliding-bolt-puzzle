@@ -37,9 +37,9 @@ big = 100;
 $fn=40;
 
 render_all = false;
-render_side_0 = true;
+render_side_0 = false;
 render_side_1 = false;
-render_inner = false;
+render_inner = true;
 
 hole_angles = [0, 230, 200, 140, 115, -65, -65, -65, 65, 30, -30, 115, 115, 240, 200, 115, 0];
 hole_heights = [0, 1, 2, 2, 1, 1, 2, 3, 4, 5, 5, 5, 6, 7, 8, 9, 10];

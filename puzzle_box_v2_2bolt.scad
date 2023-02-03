@@ -37,15 +37,15 @@ big = 100;
 $fn=40;
 
 render_all = false;
-render_side_0 = true;
-render_side_1 = false;
-render_inner = true;
+render_side_0 = false;
+render_side_1 = true;
+render_inner = false;
 
 hole_angles = [
 45, 
--45, -135,
--225, -60,
-30, 150,
+-45, -225,
+-135, 30,
+-60, 150,
 240, 30,
 -60, -240,
 -150, 135,
