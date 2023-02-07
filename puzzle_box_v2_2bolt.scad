@@ -37,22 +37,28 @@ big = 100;
 $fn=40;
 
 render_all = false;
-render_side_0 = false;
-render_side_1 = true;
+render_side_0 = true;
+render_side_1 = false;
 render_inner = false;
 
+// Left column contains holes for upper bolt.
+// Each subsequent hole should be either within the same segment
+// or the one opposite.
+// Right column contains holes for the lower bolt.
+// Each hole should be 90 degrees or -90 degrees rotated from the upper bolt
+// hole in the row below.
 hole_angles = [
 45, 
--45, -225,
--135, 30,
--60, 150,
-240, 30,
--60, -240,
--150, 135,
-45, -135,
--225, -30,
-60, -150,
--60
+-45, 225,
+135, 30,
+-60, 60,
+-30, 65,
+155, -115,
+-25, 45,
+-45, 55,
+145, -120,
+-30, 225,
+135
 ];
 hole_heights = [0, 
 1, 1,
